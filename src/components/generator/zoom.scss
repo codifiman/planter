@@ -1,0 +1,125 @@
+.zoom {
+  display: flex;
+  flex-direction: column;
+  height: 6em;
+  justify-content: space-between;
+  position: relative;
+
+  @media (max-width: 600px) {
+    flex-direction: row;
+    width: 6em;
+    height: 2em;
+
+  }
+
+  .zoom_in, .zoom_out, .reset {
+    align-items: center;
+    border: none;
+    display: flex;
+    justify-content: center;
+    transform-origin: center;
+    transition: filter 0.2s, transform 0.2s;
+
+  }
+
+  .reset {
+    border-radius: 2em;
+    background-color: var(--green-x-light);
+    box-shadow: 0px 1px 2px 1px hsla(0, 0%, 0%, 0.2);
+    height: 2em;
+    left: 0.4em;
+    padding: 0.1em 0 0 0.1em;
+    position: absolute;
+    top: 2.75em;
+    width: 2em;
+    z-index: 1000;
+
+    & * {
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      left: 2.55em;
+      top: 0.6em;
+    }
+  }
+
+  .zoom_in, .zoom_out {
+    border-radius: 2.5em;
+    box-shadow: 0px 2px 3px 1px hsla(0, 0%, 0%, 0.2);
+    font-size: 16px;
+    height: 2.5em;
+    position: relative;
+    width: 2.5em;
+
+    &:hover {
+      filter: saturate(50%);
+    }
+
+    &:disabled {
+      filter: brightness(1.8) saturate(0.3);
+    }
+
+    &:active {
+      transform: scale(1.1, 1.1);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .zoom_in {
+    background-color: var(--green);
+
+    &::after, &::before {
+      background-color: white;
+      border-radius: 1px;
+      content: '';
+      display: inline-block;
+      position: absolute;
+    }
+
+    &::before {
+      height: 17px;
+      width: 3px;
+    }
+
+    &::after {
+      height: 3px;
+      width: 17px;
+    }
+  }
+
+  .zoom_out {
+    background-color: var(--green-light);
+
+    &::before {
+      background-color: white;
+      border-radius: 1px;
+      content: '';
+      display: inline-block;
+      height: 3px;
+      position: absolute;
+      width: 17px;
+    }
+  }
+
+  .zoom_pct {
+    padding: 0.25em 0.5em;
+    width: 4em;
+    text-align: center;
+    box-shadow: 0px 1px 2px 1px hsla(0, 0%, 0%, 0.2);
+    position: absolute;
+    background-color: white;
+    top: -1.75em;
+    left: -0.7em;
+    font-size: 12px;
+    font-family: 'Catamaran', sans-serif;
+
+    @media(max-width: 600px) {
+      left: 1.5em;
+      top: 2.5em;
+    }
+  }
+}

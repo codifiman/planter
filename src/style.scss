@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700|Roboto+Slab');
+
+body {
+  background-color: var(--app-background);
+  font-family: 'Roboto Slab', serif;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Catamaran', sans-serif;
+  font-weight: bold;
+}
+
+// Colors
+body {
+  --brown: hsl(0, 10%, 45%);
+  --green: hsl(158, 100%, 30%);
+  --green-x-light: hsl(158, 100%, 95%);
+  --green-light: hsl(158, 60%, 50%);
+  --app-background: white;
+  --grey: hsl(0, 0%, 35%);
+  --grey-x-light: hsl(0, 0%, 95%);
+}

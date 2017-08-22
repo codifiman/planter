@@ -1,0 +1,39 @@
+.outer {
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+._switch {
+  --grey: hsl(0, 0%, 20%);
+  align-items: center;
+  background-color: var(--grey);
+  border-radius: 1.5px;
+  display: flex;
+  height: 3px;
+  position: relative;
+  transition: background-color 0.2s;
+  width: 3em;
+
+  .toggle {
+    background-color: white;
+    border: solid 0.1em var(--grey);
+    border-radius: 1em;
+    box-shadow: 0 2px 4px -1px hsla(0, 0%, 10%, 0.4);
+    display: inline-block;
+    height: 1em;
+    left: 0.2em;
+    position: absolute;
+    transition: transform 0.2s, border-color 0.2s;
+    width: 1em;
+  }
+
+  &.on {
+    background-color: var(--green);
+
+    .toggle {
+      transform: translateX(1.4em);
+      border-color: var(--green);
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.radiogroup {
+  .radio {
+    --circ: 1.25em;
+
+    align-items: center;
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+
+    input[type="radio"] {
+
+      width: var(--circ);
+      height: var(--circ);
+      margin-right: 1em;
+
+      &:active::after {
+          transform: scale(1.2, 1.2);
+      }
+
+      &::after {
+        background-color: var(--app-background);
+        border: solid 2px var(--green);
+        box-sizing: border-box;
+        border-radius: var(--circ);
+        content: '';
+        display: inline-block;
+        height: var(--circ);
+        transform-origin: center;
+        transition: background-color 0.2s, transform 0.2s;
+        width: var(--circ);
+      }
+
+      &:checked::after {
+        background-color: var(--green);
+      }
+
+    }
+
+    label {
+      user-select: none;
+    }
+  }
+}
