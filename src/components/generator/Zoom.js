@@ -22,16 +22,16 @@ export const Zoom = ({ input }) => (
       disabled={input.value >= 2}
     />
     <button
+      className={zoom_out}
+      onClick={(e) => changeZoom(e, input, -0.1)}
+      disabled={input.value <= 0.2}
+    />
+    <button
       className={reset}
       onClick={(e) => changeZoom(e, input, 0.5-input.value)}
       disabled={input.value === 0.5}
     >
       <Icon name="undo" fixedWidth/>
     </button>
-    <button
-      className={zoom_out}
-      onClick={(e) => changeZoom(e, input, -0.1)}
-      disabled={input.value <= 0.2}
-    />
   </div>
 );

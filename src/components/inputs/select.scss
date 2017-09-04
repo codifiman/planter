@@ -15,7 +15,26 @@
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+
+  .label {
+    display: flex;
+    flex: 1;
+    margin-right: 1em;
+    justify-content: space-between;
+    user-select: none;
+
+    :not(:last-child) {
+      margin-right: 0.5em;
+    }
+
+    :last-child:not(:first-child) {
+      filter: brightness(1.4);
+    }
+
+    :hover {
+      cursor: default;
+    }
+  }
 
   .arrow {
     content: '';
@@ -57,6 +76,21 @@
     & > div { // Inner value container
       padding: 0.8em 0.4em;
       margin: 0 0.4em;
+      user-select: none;
+      display: flex;
+
+      :first-child {
+        flex: 1;
+      }
+
+      :last-child:not(:first-child) {
+        filter: brightness(1.4);
+        margin-right: 1em;
+      }
+
+      :hover {
+        cursor: default;
+      }
     }
 
     &:not(:last-child) > div {

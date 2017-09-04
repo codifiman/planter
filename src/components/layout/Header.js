@@ -1,9 +1,16 @@
 // Header
 import React from 'react';
-import { contents, header } from './layout.scss';
+import { header, leftContent, rightContent } from './layout.scss';
+
+import { AppDrawerToggle } from './AppDrawerToggle';
 
 export const Header = () => (
   <div className={header}>
-    Planter
+    <div className={leftContent}>
+      <AppDrawerToggle />
+    </div>
+    <div className={rightContent}>
+      Planter
+    </div>
   </div>
 );

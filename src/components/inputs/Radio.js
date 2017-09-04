@@ -6,8 +6,8 @@ import { Input } from './Input';
 
 import { radio, radiogroup } from './radio.scss';
 
-const Radio = ({ value, label, input }) => (
-  <div className={radio} >
+const Radio = ({ value, label, disabled, input }) => (
+  <div className={radio}>
     <input
       type='radio'
       name={input.name}
@@ -15,6 +15,7 @@ const Radio = ({ value, label, input }) => (
       value={value}
       checked={value === input.value}
       onChange={() => input.onChange(value)}
+      disabled={disabled}
     />
     <label htmlFor={`${input.name}-${value}`}>{label}</label>
   </div>
@@ -37,5 +38,5 @@ RadioGroup.propTypes = {
     value:    PropTypes.any,
     onChange: PropTypes.func.isRequired,
     name:     PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
 };

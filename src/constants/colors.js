@@ -1,10 +1,10 @@
 export const BLACK = {
   label: 'Black',
-  value: 'hsl(0, 0%, 10%)'
+  value: 'black'
 };
 export const BROWN = {
   label: 'Brown',
-  value: 'hsl(15, 10%, 50%)'
+  value: 'brown'
 };
 
 export const colors = [

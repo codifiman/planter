@@ -4,43 +4,30 @@ import { connect } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import classnames from 'classnames';
 
-import { colorMap } from 'constants/colors';
-import { sizeMap } from 'constants/sizes';
+import { Weekly, Monthly } from 'components/spreads';
+import { WEEKLY, MONTHLY } from 'constants/spreads';
 
-import { container, page, content } from './pagepreview.scss';
+import { container } from './pagepreview.scss';
 
-const getContainerStyle = ({ zoom }) => ({
+const getContainerStyle = (zoom) => ({
   transform:   `scale(${zoom}, ${zoom})`,
 });
 
-const getPageStyle = ({ size }) => ({
-  width:       `${sizeMap[size].width}in`,
-  height:      `${sizeMap[size].height}in`,
-});
+const previewSpreads = {
+  [ WEEKLY.label ]: <Weekly />,
+  [ MONTHLY.label ]: <Monthly />,
+};
 
-const getContentStyle = ({ color }) => ({
-  borderColor: colorMap[color].value,
-});
-
-const Page = ({ children, ...rest }) => (
-  <div className={page} style={getPageStyle(rest)}>
-    <div style={getContentStyle(rest)} className={content}>
-      {children}
-    </div>
-  </div>
-
-);
-const PPreview = (props) => (
-  <div className={container} style={getContainerStyle(props)}>
-    <Page {...props} />
-    <Page {...props} />
+export let PagePreview = ({ spread, zoom }) => (
+  <div className={container} style={getContainerStyle(zoom)}>
+    {previewSpreads[spread]}
   </div>
 );
 
-const formValues = getFormValues('generator');
+const previewValues = getFormValues('preview');
 
 const mapState = (state, props) => ({
-  ...formValues(state)
+  ...previewValues(state)
 });
 
-export const PagePreview = connect(mapState)(PPreview);
+PagePreview = connect(mapState)(PagePreview);

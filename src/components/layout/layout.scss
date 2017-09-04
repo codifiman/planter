@@ -4,8 +4,16 @@
 }
 
 .header {
-  justify-content: flex-end;
   border-bottom: var(--app-border);
+
+  .leftContent, .rightContent {
+    display: flex;
+    flex: 1;
+  }
+
+  .rightContent {
+    justify-content: flex-end;
+  }
 }
 
 .footer {
@@ -16,6 +24,8 @@
 .body {
   background-color: hsl(0, 0%, 90%);
   height: calc(100vh - 2*var(--bar-height));
+  overflow: hidden;
+  position: relative;
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -37,14 +47,29 @@
 .appDrawer {
   background-color: var(--app-background);
   border-right: var(--app-border);
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 15em;
 
   @media (max-width: 600px) {
     border-right: none;
     border-bottom: var(--app-border);
+    display: block;
     height: auto;
+    position: absolute;
+    top: -100%;
+    transition: top 0.2s;
     width: 100%;
+    z-index: 10;
+  }
+
+  &.drawerToggled {
+    top: 0;
+  }
+
+  .mainDrawer {
+    flex-grow: 1;
   }
 }
 

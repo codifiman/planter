@@ -1,4 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700|Roboto+Slab|Special+Elite|Lateef');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lateef', serif;
+  font-variant-numeric: ordinal;
+}
+
+body {
+  // Colors
+  --brown: hsl(0, 10%, 45%);
+  --green: hsl(158, 100%, 30%);
+  --green-x-light: hsl(158, 100%, 95%);
+  --green-light: hsl(158, 60%, 50%);
+  --app-background: white;
+  --grey: hsl(0, 0%, 35%);
+  --grey-light: hsl(0, 0%, 60%);
+  --grey-x-light: hsl(0, 0%, 95%);
+
+  // Misc
+  --washi-w: 0.5in;
+  --washi-m: 0.315in;
+}
 
 body {
   background-color: var(--app-background);
@@ -7,20 +28,5 @@ body {
   width: 100vw;
   padding: 0;
   margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Catamaran', sans-serif;
-  font-weight: bold;
-}
-
-// Colors
-body {
-  --brown: hsl(0, 10%, 45%);
-  --green: hsl(158, 100%, 30%);
-  --green-x-light: hsl(158, 100%, 95%);
-  --green-light: hsl(158, 60%, 50%);
-  --app-background: white;
-  --grey: hsl(0, 0%, 35%);
-  --grey-x-light: hsl(0, 0%, 95%);
+  color: var(--grey-light);
 }

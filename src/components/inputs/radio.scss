@@ -15,7 +15,7 @@
       height: var(--circ);
       margin-right: 1em;
 
-      &:active::after {
+      &:active:not(:disabled)::after {
           transform: scale(1.2, 1.2);
       }
 
@@ -28,7 +28,7 @@
         display: inline-block;
         height: var(--circ);
         transform-origin: center;
-        transition: background-color 0.2s, transform 0.2s;
+        transition: background-color 0.2s, transform 0.2s, filter 0.2s;
         width: var(--circ);
       }
 
@@ -36,6 +36,15 @@
         background-color: var(--green);
       }
 
+      &:disabled {
+        &::after {
+          filter: saturate(30%) brightness(1.4);
+        }
+
+        & + label {
+          filter: brightness(1.4);
+        }
+      }
     }
 
     label {

@@ -51,8 +51,8 @@ class SelectBox extends Component {
     return (
       <div className={classes.selectBox} >
         <div className={classes.valueContainer} onClick={this.toggleSelect}>
-          <div>
-            {input.value}
+          <div className={classes.label}>
+            {options.find((o) => o.value === input.value).label}
           </div>
           <div className={classes.arrow} />
         </div>
@@ -87,7 +87,7 @@ export const Select = ({ label, ...rest }) => (
 
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
+    label: PropTypes.node.isRequired,
     value: PropTypes.any.isRequired,
   })).isRequired
 }
